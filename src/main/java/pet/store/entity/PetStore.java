@@ -22,23 +22,23 @@ import lombok.ToString;
 public class PetStore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long petStrId;
-	private String petStrNm;
-	private String petStrAddr;
-	private String petStrCty;
-	private String petStrSt;
-	private Long petStrZip;
-	private Long petStrPhn;
+	public Long petStrId;
+	public String petStrNm;
+	public String petStrAddr;
+	public String petStrCty;
+	public String petStrSt;
+	public Long petStrZip;
+	public Long petStrPhn;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "pet_store_customer", joinColumns = @JoinColumn(name = "pet_store_id"), inverseJoinColumns = @JoinColumn(name = "customer_id"))
-	private Set<Customer> customers = new HashSet<>();
+	Set<Customer> customers = new HashSet<>();
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@OneToMany(mappedBy = "petStore", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<Employee> employees = new HashSet<>();
+	Set<Employee> employees = new HashSet<>();
 
 }
