@@ -19,14 +19,14 @@ import lombok.ToString;
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cstId;
-	private String cstFrstNm;
-	private String cstLstNm;
-	private String cstEml;
+	public Long cstId;
+	public String cstFrstNm;
+	public String cstLstNm;
+	public String cstEml;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(mappedBy = "customers", cascade = CascadeType.PERSIST)
-	private Set<PetStore> petStores = new HashSet<>();	
+	public Set<PetStore> petStores = new HashSet<>();	
 
 }

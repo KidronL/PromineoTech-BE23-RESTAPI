@@ -17,15 +17,15 @@ import lombok.ToString;
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long empId;
-	private String empFrstNm;
-	private String empLstNm;
-	private Long empPhn;
-	private String empJbTtl;
+	public Long empId;
+	public String empFrstNm;
+	public String empLstNm;
+	public Long empPhn;
+	public String empJbTtl;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "pet_store_id")
-	private PetStore petStore;
+	public PetStore petStore;
 }

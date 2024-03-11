@@ -24,6 +24,7 @@ public class PetStoreData {
 	
 	private Set<PetStoreEmployee> employees = new HashSet<>();
 	
+	//Constructor to convert PetStore to PetStoreData
 	public PetStoreData(PetStore petStore) {
 		
 		this.petStrId = petStore.petStrId;

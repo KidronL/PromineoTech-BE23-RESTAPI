@@ -5,17 +5,28 @@ import java.util.Set;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pet.store.entity.Customer;
 import pet.store.entity.PetStore;
 
 @Data
 @NoArgsConstructor
 public class PetStoreCustomer {
 
-	private Long cstId;
-	private String cstFrstNm;
-	private String cstLstNm;
-	private String cstEml;
+	public Long cstId;
+	public String cstFrstNm;
+	public String cstLstNm;
+	public String cstEml;
 	
-	private Set<PetStore> petStores = new HashSet<>();	
+	public Set<PetStore> petStores = new HashSet<>();
+	
+	public PetStoreCustomer(Customer customer){
+		
+		this.cstId = customer.getCstId();
+		this.cstFrstNm = customer.getCstFrstNm();
+		this.cstLstNm = customer.getCstLstNm();
+		this.cstEml = customer.getCstEml();
+		this.petStores = customer.getPetStores();
+		
+	}
 
 }
